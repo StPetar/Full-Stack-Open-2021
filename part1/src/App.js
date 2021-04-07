@@ -5,21 +5,11 @@ const App = () => {
     left: 0, right: 0
   })
 
-  const handleLeftClick = () => {
-    const newClicks = { 
-      ...clicks, 
-      left: clicks.left + 1 
-    }
-    setClicks(newClicks)
-  }
-  
-  const handleRightClick = () => {
-    const newClicks = { 
-      ...clicks, 
-      right: clicks.right + 1 
-    }
-    setClicks(newClicks)
-  }
+  const handleLeftClick = () =>
+  setClicks({ ...clicks, left: clicks.left + 1 })
+
+const handleRightClick = () =>
+  setClicks({ ...clicks, right: clicks.right + 1 })
 
   return (
     <div>
@@ -30,13 +20,5 @@ const App = () => {
     </div>
   )
 }
-
-const Display = ({ counter }) => <div>{counter}</div>
-
-const Button = ({ handleClick, text }) => (
-  <button onClick={handleClick}>
-    {text}
-  </button> 
-)
 
 export default App
