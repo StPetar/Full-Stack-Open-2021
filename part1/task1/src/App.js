@@ -1,3 +1,8 @@
+/*
+  Everything is in the form of functions, 
+  the version of ESLint I have installed marks const functions as errors
+  and prompts me to rewrite them as normal functions
+*/
 function App() {
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
@@ -9,9 +14,12 @@ function App() {
   return (
     <div>
       <Header course={course} />
-      <Content part={part1} content={exercises1}/>
-      <Content part={part2} content={exercises2}/>
-      <Content part={part3} content={exercises3}/>
+      <Content part1={part1} 
+               part2={part2}
+               part3={part3} 
+               content1={exercises1} 
+               content2={exercises2} 
+               content3={exercises3}/>
       <Total total={exercises1+exercises2+exercises3}/>
       
     </div>
@@ -27,11 +35,20 @@ function Header(props){
 function Content(props){
   return(
     <div>
-      <p>{props.part} {props.content}</p>
+      <Part part={props.part1} content={props.content1}/>
+      <Part part={props.part2} content={props.content2}/>
+      <Part part={props.part3} content={props.content3}/>
     </div>
   )
 }
 
+function Part(props){
+  return(
+    <div>
+      <p>{props.part} {props.content}</p>
+    </div>
+  )
+}
 function Total(props){
   return(
     <div>
