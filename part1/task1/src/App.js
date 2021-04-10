@@ -31,10 +31,6 @@ const Header = (props) => {
     </div>
   )
 }
-
-/* <Part part={props[1].name} content={props[1].exercises}/>
-      <Part part={props[2].name} content={props[2].exercises}/>
-      */
 const Content = (props) => {
   return(
     <div>
