@@ -25,34 +25,36 @@ const Button = ({handleClick, text}) => (
   </button>
 )
 
-const Display = ({text, value}) => (
-  <div>
-    {text} {value}
-  </div>
+const Statistic = ({value, text}) => (
+  <tr>
+    <td>{text}</td>
+    <td>{value}</td>
+  </tr>
 )
+
 
 const Statistics = ({good, neutral, bad}) => {
   const numOfReviews = good + neutral + bad
-  if (numOfReviews === 0){
-    return(
-      <div>
-        <p>No Feedback given</p>
-      </div>
-    )
-  }
-  // Per definition (good: 1, neutral: 0, bad: -1)
-  // neutral can be omitted
   const avg = (good - bad) / numOfReviews
   const rating = (good / numOfReviews) * 100
+  if (numOfReviews > 0){
+    return(
+      <table>
+        <Statistic value={good} text='good' />
+        <Statistic value={neutral} text='neutral' />
+        <Statistic value={bad} text='bad' />
+        <Statistic value={numOfReviews} text='Total reviews' />
+        <Statistic value={avg} text='Average' />
+        <Statistic value={rating} text='Rating' />
+      </table>
+    )
+  }
+  else{
   return(
     <div>
-      <Display value={good} text='good' />
-      <Display value={neutral} text='neutral' />
-      <Display value={bad} text='bad'/>
-      Total reviews {numOfReviews}<br/>
-      Average {avg}<br/>
-      Rating {rating} %<br/>
+      <p>No Feedback given</p>
     </div>
-  )
+  )}
 }
+
 export default App
