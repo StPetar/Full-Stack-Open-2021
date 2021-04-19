@@ -31,7 +31,7 @@ const App = () => {
 		  console.log(response)
 		})
 	}
-	}
+	
 
 	const handleNoteChange = (event) => {
 		console.log(event.target.value)
@@ -63,6 +63,6 @@ const App = () => {
 			</div>
 		)
 }
-}
+
 
 export default App
