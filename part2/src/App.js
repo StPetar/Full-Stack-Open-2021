@@ -22,12 +22,15 @@ const App = () => {
 		const noteObject = {
 			content: newNote,
 			date: new Date().toISOString(),
-			important: Math.random() < 0.5,
-			id: notes.length + 1,
+			important: Math.random() < 0.5
 		}
 	
-		setNotes(notes.concat(noteObject))
-		setNewNote('')
+		axios
+		.post('http://localhost:3001/notes', noteObject)
+		.then(response => {
+		  console.log(response)
+		})
+	}
 	}
 
 	const handleNoteChange = (event) => {
@@ -59,6 +62,7 @@ const App = () => {
 				</form>
 			</div>
 		)
+}
 }
 
 export default App
